@@ -17,8 +17,8 @@ public class Rivista extends Elemento {
 
     }
 
-    public Rivista(long isbn, int anno_pubblicazione, int n_pagine, Periodicita periodicita) {
-        super(isbn, anno_pubblicazione, n_pagine);
+    public Rivista(long isbn, String titolo, int anno_pubblicazione, int n_pagine, Periodicita periodicita) {
+        super(isbn, titolo, anno_pubblicazione, n_pagine);
         this.periodicita = periodicita;
 
     }
@@ -31,6 +31,7 @@ public class Rivista extends Elemento {
     public String toString() {
         return "Rivista{" +
                 "id=" + getId() +
+                ", titolo=" + getTitolo() +
                 ", isbn=" + getIsbn() +
                 ", anno_pubblicazione=" + getAnno_pubblicazione() +
                 ", n_pagine=" + getN_pagine() +

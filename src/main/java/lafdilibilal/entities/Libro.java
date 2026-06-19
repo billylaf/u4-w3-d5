@@ -17,8 +17,8 @@ public class Libro extends Elemento {
 
     }
 
-    public Libro(long isbn, int anno_pubblicazione, int n_pagine, String autore, Genere genere) {
-        super(isbn, anno_pubblicazione, n_pagine);
+    public Libro(long isbn, String titolo, int anno_pubblicazione, int n_pagine, String autore, Genere genere) {
+        super(isbn, titolo, anno_pubblicazione, n_pagine);
         this.autore = autore;
         this.genere = genere;
     }
@@ -34,6 +34,7 @@ public class Libro extends Elemento {
     public String toString() {
         return "Libro{" +
                 "id=" + getId() +
+                ", titolo=" + getTitolo() +
                 ", isbn=" + getIsbn() +
                 ", anno_pubblicazione=" + getAnno_pubblicazione() +
                 ", n_pagine=" + getN_pagine() +

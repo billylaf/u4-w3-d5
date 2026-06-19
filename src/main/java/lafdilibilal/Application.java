@@ -34,11 +34,11 @@ public class Application {
 
 
         ///////////////////////////////////////libri/////////////////////////////////////////////
-        Libro signoreAnelli = new Libro(9788804703741L, 2019, 1200, "J.R.R. Tolkien", Genere.FANTASY);
-        Libro assassinioOrientExpress = new Libro(9788804682046L, 2017, 480, "Agatha Christie", Genere.GIALLO);
-        Libro progettoHailMary = new Libro(9788804753197L, 2021, 352, "Andy Weir", Genere.FANTASCIENZA);
-        Libro barbari = new Libro(9788806240619L, 2020, 560, "Alessandro Barbero", Genere.STORICO);
-        Libro cleanCode = new Libro(9788836007130L, 2023, 680, "Robert C. Martin", Genere.INFORMATICA);
+        Libro signoreAnelli = new Libro(9788804703741L, "signoreAnelli", 2019, 1200, "J.R.R. Tolkien", Genere.FANTASY);
+        Libro assassinioOrientExpress = new Libro(9788804682046L, "assassinioOrientExpress", 2017, 480, "Agatha Christie", Genere.GIALLO);
+        Libro progettoHailMary = new Libro(9788804753197L, "progettoHailMary", 2021, 352, "Andy Weir", Genere.FANTASCIENZA);
+        Libro barbari = new Libro(9788806240619L, "barbari", 2020, 560, "Alessandro Barbero", Genere.STORICO);
+        Libro cleanCode = new Libro(9788836007130L, "cleanCode", 2023, 680, "Robert C. Martin", Genere.INFORMATICA);
 
         ElementoDAO.save(signoreAnelli);
         ElementoDAO.save(assassinioOrientExpress);
@@ -46,18 +46,18 @@ public class Application {
         ElementoDAO.save(barbari);
         ElementoDAO.save(cleanCode);
         ///////////////////////////////////////riviste/////////////////////////////////////////////
-        Rivista time = new Rivista(9771123456789L, 2026, 120, Periodicita.SETTIMANALE);
-        Rivista nationalGeographic = new Rivista(9779876543210L, 2025, 200, Periodicita.MENSILE);
-        Rivista harvardReview = new Rivista(9775555555555L, 2024, 350, Periodicita.SEMESTRALE);
-        Rivista economist = new Rivista(9774444444444L, 2026, 100, Periodicita.SETTIMANALE);
-        Rivista wired = new Rivista(9773333333333L, 2025, 180, Periodicita.MENSILE);
+        Rivista time = new Rivista(9771123456789L, "time", 2026, 120, Periodicita.SETTIMANALE);
+        Rivista nationalGeographic = new Rivista(9779876543210L, "nationalGeographic", 2025, 200, Periodicita.MENSILE);
+        Rivista harvardReview = new Rivista(9775555555555L, "harvardReview", 2024, 350, Periodicita.SEMESTRALE);
+        Rivista economist = new Rivista(9774444444444L, "economist", 2026, 100, Periodicita.SETTIMANALE);
+        Rivista wired = new Rivista(9773333333333L, "wired", 2025, 180, Periodicita.MENSILE);
 
         ElementoDAO.save(time);
         ElementoDAO.save(nationalGeographic);
         ElementoDAO.save(harvardReview);
         ElementoDAO.save(economist);
-        ElementoDAO.save(wired);*/
-
+        ElementoDAO.save(wired);
+*/
  /*
         try {
             Utente utente1 = UtenteDAO.findById(5);
@@ -87,12 +87,14 @@ public class Application {
 
 /////////////////////es1/////////////////////////////
         /* ElementoDAO.removeByIsbn(9771123456789L);*/
+
 //////////////////////////////es2///////////////////////////
         System.out.println(ElementoDAO.findByIsbn(9788804703741L));
 //////////////////////////////e3/////////////////////////////////////////
         ElementoDAO.findByAnnoPubblicazione(2021).forEach(System.out::println);
 ///////////////////////////es4/////////////////////////////////////
         ElementoDAO.findByAutore("Alessandro Barbero").forEach(System.out::println);
+
 
         System.out.println("Hello World!");
     }

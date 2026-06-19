@@ -13,9 +13,11 @@ public class Elemento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String titolo;
+
     @Column(unique = true, nullable = false)
     private long isbn;
-    
+
     private int anno_pubblicazione;
     private int n_pagine;
 
@@ -26,8 +28,9 @@ public class Elemento {
 
     }
 
-    public Elemento(long isbn, int anno_pubblicazione, int n_pagine) {
+    public Elemento(long isbn, String titolo, int anno_pubblicazione, int n_pagine) {
         this.isbn = isbn;
+        this.titolo = titolo;
         this.anno_pubblicazione = anno_pubblicazione;
         this.n_pagine = n_pagine;
     }
@@ -38,6 +41,10 @@ public class Elemento {
 
     public long getIsbn() {
         return isbn;
+    }
+
+    public String getTitolo() {
+        return titolo;
     }
 
     public int getAnno_pubblicazione() {
@@ -52,9 +59,11 @@ public class Elemento {
     public String toString() {
         return "Elemento{" +
                 "id=" + id +
+                ", titolo='" + titolo + '\'' +
                 ", isbn=" + isbn +
                 ", anno_pubblicazione=" + anno_pubblicazione +
                 ", n_pagine=" + n_pagine +
+                ", prestiti=" + prestiti +
                 '}';
     }
 }
