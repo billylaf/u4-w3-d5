@@ -2,7 +2,10 @@ package lafdilibilal.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import lafdilibilal.entities.Prestito;
+
+import java.util.List;
 
 
 public class PrestitoDAO {
@@ -34,5 +37,20 @@ public class PrestitoDAO {
             throw new RuntimeException("prestito con ID " + id + " non trovato");
         }
         return fromDB;
+    }
+
+    public List<Prestito> findPrestitiAttivi(int nTessera) {
+        TypedQuery<Prestito> query = this.entityManager.createQuery(
+                "SELECT p FROM Prestito p WHERE p.utente.n_tessera = :tessera AND p.restituzione_effettiva IS NULL",
+                Prestito.class);
+        query.setParameter("tessera", nTessera);
+        return query.getResultList();
+    }
+
+    public List<Prestito> findScaduti() {
+        TypedQuery<Prestito> query = this.entityManager.createQuery(
+                "SELECT p FROM Prestito p WHERE p.restituzione_prevista < CURRENT_DATE AND p.restituzione_effettiva IS NULL",
+                Prestito.class);
+        return query.getResultList();
     }
 }

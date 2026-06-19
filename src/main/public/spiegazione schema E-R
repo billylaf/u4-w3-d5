@@ -1,0 +1,3 @@
+il mio schema e-r e' fatto in questo modo perche' sta utente e elemento c'e' una relazione N:N,
+ di conseguenza bisogna creare una enita' centrale (prestiti) che contenga le FK di entrambe le entita'.
+ l'enitita elemento contiene 2 classi figlie, rivista in cui vengono inserite tutti gli attributi, stessa cosa per libri.

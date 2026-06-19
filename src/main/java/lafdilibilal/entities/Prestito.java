@@ -52,7 +52,7 @@ public class Prestito {
     public LocalDate getInizio_prestito() {
         return inizio_prestito;
     }
-
+    
     public LocalDate getRestituzione_prevista() {
         return restituzione_prevista;
     }

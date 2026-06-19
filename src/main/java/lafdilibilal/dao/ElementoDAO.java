@@ -48,14 +48,15 @@ public class ElementoDAO {
         Query query = entityManager.createQuery("DELETE FROM Elemento e WHERE e.isbn = :isbn")
                 .setParameter("isbn", isbn);
         query.executeUpdate();
+
         transaction.commit();
     }
 
-    public Elemento findByIsbn(long isbn) {
+    public List<Elemento> findByIsbn(long isbn) {
         TypedQuery<Elemento> query = this.entityManager.createQuery(
                 "SELECT e FROM Elemento e WHERE e.isbn = :isbn", Elemento.class);
         query.setParameter("isbn", isbn);
-        return query.getResultStream().findFirst().orElse(null);
+        return query.getResultList();
     }
 
     public List<Elemento> findByAnnoPubblicazione(int anno) {
@@ -69,6 +70,13 @@ public class ElementoDAO {
         TypedQuery<Libro> query = this.entityManager.createQuery(
                 "SELECT x FROM Libro x WHERE LOWER(x.autore) LIKE LOWER(:autore)", Libro.class);
         query.setParameter("autore", "%" + autore + "%");
+        return query.getResultList();
+    }
+
+    public List<Elemento> findByTitoloLike(String titolo) {
+        TypedQuery<Elemento> query = this.entityManager.createQuery(
+                "SELECT e FROM Elemento e WHERE LOWER(e.titolo) LIKE LOWER(:titolo)", Elemento.class);
+        query.setParameter("titolo", "%" + titolo + "%");
         return query.getResultList();
     }
 

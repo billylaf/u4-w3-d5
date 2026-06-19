@@ -34,11 +34,11 @@ public class Application {
 
 
         ///////////////////////////////////////libri/////////////////////////////////////////////
-        Libro signoreAnelli = new Libro(9788804703741L, "signoreAnelli", 2019, 1200, "J.R.R. Tolkien", Genere.FANTASY);
-        Libro assassinioOrientExpress = new Libro(9788804682046L, "assassinioOrientExpress", 2017, 480, "Agatha Christie", Genere.GIALLO);
-        Libro progettoHailMary = new Libro(9788804753197L, "progettoHailMary", 2021, 352, "Andy Weir", Genere.FANTASCIENZA);
+        Libro signoreAnelli = new Libro(9788804703741L, "signore Anelli", 2019, 1200, "J.R.R. Tolkien", Genere.FANTASY);
+        Libro assassinioOrientExpress = new Libro(9788804682046L, "assassinio OrientExpress", 2017, 480, "Agatha Christie", Genere.GIALLO);
+        Libro progettoHailMary = new Libro(9788804753197L, "progetto Hail Mary", 2021, 352, "Andy Weir", Genere.FANTASCIENZA);
         Libro barbari = new Libro(9788806240619L, "barbari", 2020, 560, "Alessandro Barbero", Genere.STORICO);
-        Libro cleanCode = new Libro(9788836007130L, "cleanCode", 2023, 680, "Robert C. Martin", Genere.INFORMATICA);
+        Libro cleanCode = new Libro(9788836007130L, "clean Code", 2023, 680, "Robert C. Martin", Genere.INFORMATICA);
 
         ElementoDAO.save(signoreAnelli);
         ElementoDAO.save(assassinioOrientExpress);
@@ -47,8 +47,8 @@ public class Application {
         ElementoDAO.save(cleanCode);
         ///////////////////////////////////////riviste/////////////////////////////////////////////
         Rivista time = new Rivista(9771123456789L, "time", 2026, 120, Periodicita.SETTIMANALE);
-        Rivista nationalGeographic = new Rivista(9779876543210L, "nationalGeographic", 2025, 200, Periodicita.MENSILE);
-        Rivista harvardReview = new Rivista(9775555555555L, "harvardReview", 2024, 350, Periodicita.SEMESTRALE);
+        Rivista nationalGeographic = new Rivista(9779876543210L, "national Geographic", 2025, 200, Periodicita.MENSILE);
+        Rivista harvardReview = new Rivista(9775555555555L, "harvard Review", 2024, 350, Periodicita.SEMESTRALE);
         Rivista economist = new Rivista(9774444444444L, "economist", 2026, 100, Periodicita.SETTIMANALE);
         Rivista wired = new Rivista(9773333333333L, "wired", 2025, 180, Periodicita.MENSILE);
 
@@ -85,15 +85,28 @@ public class Application {
             System.out.println(ex.getMessage());
         }*/
 
-/////////////////////es1/////////////////////////////
-        /* ElementoDAO.removeByIsbn(9771123456789L);*/
 
-//////////////////////////////es2///////////////////////////
+        System.out.println("/////////////////////es1/////////////////////////////");
+        /*ElementoDAO.removeByIsbn(9771123456789L);*/
+
+        System.out.println("es2//////////////////////////////es2///////////////////////////");
         System.out.println(ElementoDAO.findByIsbn(9788804703741L));
-//////////////////////////////e3/////////////////////////////////////////
+
+        System.out.println("es3/////////////////////////////e3/////////////////////////////////////////");
         ElementoDAO.findByAnnoPubblicazione(2021).forEach(System.out::println);
-///////////////////////////es4/////////////////////////////////////
+        System.out.println("es4\n" +
+                "///////////////////////////es4/////////////////////////////////////");
         ElementoDAO.findByAutore("Alessandro Barbero").forEach(System.out::println);
+
+        System.out.println("/////////////////////////es4//////////////////////////////////////");
+        System.out.println(ElementoDAO.findByTitoloLike("assassinio Orient Express"));
+        ElementoDAO.findByTitoloLike("nat").forEach(System.out::println);
+
+        System.out.println(" ///////////////////////////es5//////////////////////////////////////////// ");
+        PrestitoDAO.findPrestitiAttivi(456789012).forEach(System.out::println);
+
+        System.out.println("    ///////////////////////////////////////////////////es6/////////////////////////////////////");
+        PrestitoDAO.findScaduti().forEach(System.out::println);
 
 
         System.out.println("Hello World!");
